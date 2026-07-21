@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Plates: A Community Around the Table</title>
+<meta name="description" content="Power Plates is a community built around shared meals, good books, member stories, and the restaurants worth knowing about.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-mark" aria-hidden="true"><img src="images/logo.png" alt=""></span>
+      Power Plates
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="media.html">Photos &amp; Media</a>
+      <a href="members.html">Members</a>
+      <a href="books.html">Books of the Month</a>
+      <a href="places-we-ate.html">Places We Ate</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Welcome to Power Plates</div>
+        <h1>A community built around the table.</h1>
+        <p class="lede">Power Plates brings people together over shared meals, good books, and honest restaurant recommendations, and celebrates the members who make it worth showing up for.</p>
+        <div class="form-row" style="margin-top: 1.8em; gap: 14px;">
+          <a href="#join" class="btn btn-primary">Join the table</a>
+          <a href="about.html" class="btn btn-ghost">Our story</a>
+        </div>
+      </div>
+      <div class="plate-art" aria-hidden="true">
+        <div class="plate-ring"></div>
+        <div class="plate-ring r2"></div>
+        <div class="plate-ring r3">
+          <img class="hero-food-img" id="hero-food-img" src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&h=600&q=80" alt="Food from a recent Power Plates gathering">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Find your way around</div>
+        <h2>What's on the table</h2>
+      </div>
+      <div class="course-list">
+        <a href="events.html" class="course-row">
+          <span class="course-num">Events</span>
+          <span>
+            <h3>Events</h3>
+            <p>Upcoming lunches, brewery meetups, and special events, all in one place.</p>
+          </span>
+          <span class="course-arrow">→</span>
+        </a>
+        <a href="media.html" class="course-row">
+          <span class="course-num">Media</span>
+          <span>
+            <h3>Photos &amp; Media</h3>
+            <p>Moments from gatherings, dinners, and community days.</p>
+          </span>
+          <span class="course-arrow">→</span>
+        </a>
+        <a href="members.html" class="course-row">
+          <span class="course-num">Members</span>
+          <span>
+            <h3>Featured Members</h3>
+            <p>The people whose stories shape this community.</p>
+          </span>
+          <span class="course-arrow">→</span>
+        </a>
+        <a href="books.html" class="course-row">
+          <span class="course-num">Reading</span>
+          <span>
+            <h3>Books of the Month</h3>
+            <p>What we're reading, with links to grab a copy of your own.</p>
+          </span>
+          <span class="course-arrow">→</span>
+        </a>
+        <a href="places-we-ate.html" class="course-row">
+          <span class="course-num">Dining</span>
+          <span>
+            <h3>Places We Ate</h3>
+            <p>Honest notes from the places we've actually eaten.</p>
+          </span>
+          <span class="course-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Meet a few of us</div>
+        <h2>Featured members</h2>
+      </div>
+      <div class="grid grid-3" id="featured-members-grid">
+        <!-- Filled by js/script.js with 3 random members from js/members-data.js.
+             Reshuffles on every page load. -->
+      </div>
+      <noscript>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="plate-photo"><div class="plate-photo-inner"><img src="images/members/Lane_Askew.jpg" alt="Lane Askew"></div></div>
+            <span class="tag">Featured June 2026</span>
+            <h3>Lane Askew</h3>
+            <p><strong>Co-Owner &amp; VP, Wellness Studio</strong><br>Red Light Method, Palm Harbor</p>
+          </div>
+          <div class="card">
+            <div class="plate-photo"><div class="plate-photo-inner"><img src="images/members/Mary_DiBenedetto_Nolte.jpg" alt="Mary DiBenedetto Nolte"></div></div>
+            <span class="tag">Featured April 2026</span>
+            <h3>Mary DiBenedetto Nolte</h3>
+            <p><strong>Color &amp; Interior Design Consultant</strong><br>Kaleidoscope Color Consulting LLC</p>
+          </div>
+          <div class="card">
+            <div class="plate-photo"><div class="plate-photo-inner"><img src="images/members/Austin_Kennerly.jpg" alt="Austin Kennerly"></div></div>
+            <span class="tag">Featured March 2026</span>
+            <h3>Austin Kennerly</h3>
+            <p><strong>Loan Originator</strong><br>Van Dyk Mortgage, The Miller Team</p>
+          </div>
+        </div>
+      </noscript>
+      <p class="mt-lg"><a href="members.html" class="btn btn-ghost">See all members</a></p>
+    </div>
+  </section>
+
+  <section class="section-dark" id="join">
+    <div class="wrap">
+      <div class="newsletter">
+        <div>
+          <div class="eyebrow">Stay in the loop</div>
+          <h2>Join the table</h2>
+          <p>Get new event announcements, member spotlights, books of the month, and restaurant finds sent straight to your inbox. No spam, just what's cooking.</p>
+        </div>
+        <div>
+          <!--
+            WEB3FORMS SETUP
+            1. Get a free access key at https://web3forms.com
+            2. Your real access key is already wired in below.
+            3. In Web3Forms, connect the "Zapier" integration (or use a Zap
+               triggered by the Web3Forms webhook) to push each submission
+               into a Google Sheet row.
+          -->
+          <form class="web3form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b1203def-ff63-4af1-85cd-ab7c9e30a74a">
+            <input type="hidden" name="subject" value="New Power Plates newsletter signup">
+            <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
+              <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
+              <button type="submit" class="btn btn-primary">Join the table</button>
+            </div>
+            <p class="form-status" role="status"></p>
+            <p class="form-note">We'll only use this to send the Power Plates newsletter. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"><img src="images/logo.png" alt=""></span>
+        Power Plates
+      </a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="media.html">Photos &amp; Media</a>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <a href="members.html">Members</a>
+          <a href="books.html">Books of the Month</a>
+          <a href="places-we-ate.html">Places We Ate</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Power Plates. All rights reserved.</span>
+      <span>Made with care, one table at a time.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/members-data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
