@@ -51,7 +51,66 @@
     <div class="wrap">
       <div class="eyebrow">What's coming up</div>
       <h1>Events</h1>
-      <p class="lede">Coming soon.</p>
+      <p class="lede">Upcoming lunches, brewery meetups, and special events, all in one place.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">This month</div>
+        <h2>Monthly lunch</h2>
+      </div>
+      <!-- LUNCH_STATE_START
+      month: july
+      eventbrite: https://julypowerplates.eventbrite.com
+      startDate: 2026-07-31T12:00:00-04:00
+      endDate: 2026-07-31T14:00:00-04:00
+      LUNCH_STATE_END -->
+      <!-- LUNCH_CARD_START -->
+      <div class="lunch-card-wrap">
+        <div class="card place-card">
+          <a class="place-photo-link" href="https://julypowerplates.eventbrite.com" target="_blank" rel="noopener">
+            <div class="place-photo">
+              <img src="https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188364805%2F67117592245%2F1%2Foriginal.20260707-125803?crop=focalpoint&amp;fit=crop&amp;w=940&amp;auto=format%2Ccompress&amp;q=75&amp;sharp=10&amp;fp-x=0.53&amp;fp-y=0.422&amp;s=78492540b9d8831d1a11fee3d3a7493b" alt="July Power Plates Lunch" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="place-photo-fallback">July Power Plates Lunch</div>
+            </div>
+          </a>
+          <div class="place-body">
+            <span class="tag">Friday, July 31 &middot; 12&ndash;2 PM</span>
+            <h3>July Power Plates Lunch</h3>
+            <p>LBC &ndash; Palm Harbor<br>35631 US Highway 19 North, Palm Harbor, FL 34684</p>
+            <a href="https://julypowerplates.eventbrite.com" target="_blank" rel="noopener" class="btn btn-primary mt-lg">RSVP on Eventbrite</a>
+          </div>
+        </div>
+      </div>
+      <!-- LUNCH_CARD_END -->
+    </div>
+  </section>
+
+  <section class="section-dark" id="join">
+    <div class="wrap">
+      <div class="newsletter">
+        <div>
+          <div class="eyebrow">Stay in the loop</div>
+          <h2>Join the table</h2>
+          <p>Get notified the moment RSVP opens for next month's lunch, plus brewery meetups and special events.</p>
+        </div>
+        <div>
+          <form class="web3form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b1203def-ff63-4af1-85cd-ab7c9e30a74a">
+            <input type="hidden" name="subject" value="New Power Plates newsletter signup">
+            <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off">
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
+              <input type="email" name="email" placeholder="Your email" required aria-label="Your email">
+              <button type="submit" class="btn btn-primary">Join the table</button>
+            </div>
+            <p class="form-status" role="status"></p>
+            <p class="form-note">We'll only use this to send the Power Plates newsletter. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
