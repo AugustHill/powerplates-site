@@ -1,0 +1,48 @@
+name: Update monthly lunch card
+
+# Runs entirely on GitHub's servers -- no dependency on any local machine.
+#
+# The Power Plates lunch is always the last Friday of the month, so this
+# checks weekly on Saturdays (the day right after) rather than daily.
+# scripts/update_lunch_card.py decides whether the current lunch date has
+# passed and, if so, tries to advance to next month's Eventbrite listing.
+# It only edits events.html; committing/pushing happens here so the script
+# stays identical whether it's run locally or in CI.
+#
+# 16:00 UTC = noon Eastern during EDT (roughly Mar-Nov). During EST
+# (Nov-Mar) this lands around 11am ET instead -- an acceptable hour of
+# seasonal drift rather than juggling two schedules for DST.
+on:
+  schedule:
+    - cron: "0 16 * * 6"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-lunch-card:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run lunch card update script
+        id: update
+        run: |
+          python scripts/update_lunch_card.py | tee /tmp/update_output.txt
+          echo "result=$(tail -1 /tmp/update_output.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push if changed
+        if: contains(steps.update.outputs.result, 'CHANGED')
+        run: |
+          git config user.name "Derrick McKenzie"
+          git config user.email "derrick.mckenzie@kw.com"
+          git add events.html
+          git commit -m "Auto-update lunch card (${{ steps.update.outputs.result }})"
+          git push
