@@ -11,6 +11,7 @@ Usage: python scripts/update_lunch_card.py
 Exit code is always 0 on a normal decision; non-zero only on a bug
 (missing state block, unreadable file, etc).
 """
+import json
 import re
 import sys
 import urllib.request
@@ -37,6 +38,8 @@ MAX_FUTURE_DAYS = 45
 
 STATE_RE = re.compile(r"<!-- LUNCH_STATE_START\s*(.*?)\s*LUNCH_STATE_END -->", re.DOTALL)
 CARD_RE = re.compile(r"<!-- LUNCH_CARD_START -->.*?<!-- LUNCH_CARD_END -->", re.DOTALL)
+JSONLD_RE = re.compile(r"<!-- LUNCH_JSONLD_START -->.*?<!-- LUNCH_JSONLD_END -->", re.DOTALL)
+SITE_URL = "https://tampapowerplates.com"
 
 
 def log(msg):
@@ -158,6 +161,46 @@ def build_fallback_html():
       <!-- LUNCH_CARD_END -->"""
 
 
+def build_jsonld_html(eventbrite_url, event):
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": event["title"],
+        "startDate": event["start"],
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+            "@type": "Place",
+            "address": event["address"],
+        },
+        "image": [event["image"]],
+        "organizer": {
+            "@type": "Organization",
+            "name": "Power Plates",
+            "url": f"{SITE_URL}/",
+        },
+        "url": eventbrite_url,
+    }
+    if event.get("end"):
+        data["endDate"] = event["end"]
+    body = json.dumps(data, indent=2)
+    return (
+        '<!-- LUNCH_JSONLD_START -->\n'
+        '<script type="application/ld+json">\n'
+        f'{body}\n'
+        '</script>\n'
+        '<!-- LUNCH_JSONLD_END -->'
+    )
+
+
+def build_fallback_jsonld_html():
+    return (
+        "<!-- LUNCH_JSONLD_START -->\n"
+        "<!-- No Event structured data while next month's lunch isn't confirmed yet. -->\n"
+        "<!-- LUNCH_JSONLD_END -->"
+    )
+
+
 def build_state_html(month, eventbrite_url, start_iso, end_iso):
     return f"""<!-- LUNCH_STATE_START
       month: {month}
@@ -211,16 +254,19 @@ def main():
     if event:
         log(f"found a real event for {nm}: \"{event['title']}\" on {event['start']}")
         new_card = build_card_html(nm_url, event)
+        new_jsonld = build_jsonld_html(nm_url, event)
         new_state = build_state_html(nm, nm_url, event["start"], event["end"])
         result = f"CHANGED month={nm}"
     else:
         log(f"{nm_url} is not a ready/valid event yet. Using the 'coming soon' placeholder "
             f"and will check again on the next run.")
         new_card = build_fallback_html()
+        new_jsonld = build_fallback_jsonld_html()
         new_state = None  # keep existing state so we keep retrying nm_url on future runs
         result = "CHANGED_FALLBACK"
 
     new_html = CARD_RE.sub(lambda m: new_card, html, count=1)
+    new_html = JSONLD_RE.sub(lambda m: new_jsonld, new_html, count=1)
     if new_state:
         new_html = STATE_RE.sub(lambda m: new_state, new_html, count=1)
 
