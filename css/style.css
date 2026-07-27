@@ -506,6 +506,54 @@ section { padding: 64px 0; }
 .place-body h3 a:hover { color: var(--paprika); }
 .place-body p { color: #4a443d; font-size: .95rem; }
 
+/* ---------- Member directory ---------- */
+
+.directory-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.directory-filters input[type="text"] {
+  flex: 2 1 240px;
+  padding: .85em 1em;
+  border-radius: var(--radius);
+  border: 1.5px solid rgba(41,39,36,.2);
+  background: var(--cream);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  color: var(--charcoal);
+}
+.directory-filters select {
+  flex: 1 1 180px;
+  padding: .85em 1em;
+  border-radius: var(--radius);
+  border: 1.5px solid rgba(41,39,36,.2);
+  background: var(--cream);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  color: var(--charcoal);
+}
+.directory-filters input:focus-visible,
+.directory-filters select:focus-visible {
+  outline: 2px solid var(--mustard);
+  outline-offset: 2px;
+  border-color: var(--mustard);
+}
+.directory-card .directory-market {
+  font-family: var(--font-ticket);
+  font-size: .75rem;
+  color: #6b6966;
+  margin-top: -.4em;
+}
+.directory-contact {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(41,39,36,.12);
+  font-size: .85rem;
+}
+.directory-contact a { color: var(--basil-deep); }
+
 /* ---------- Newsletter / Join the Table ---------- */
 
 .newsletter {
@@ -561,6 +609,9 @@ section { padding: 64px 0; }
 }
 .contact-form input[type="text"],
 .contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="url"],
+.contact-form select,
 .contact-form textarea {
   width: 100%;
   padding: .85em 1em;
@@ -573,6 +624,7 @@ section { padding: 64px 0; }
 }
 .contact-form textarea { min-height: 150px; resize: vertical; }
 .contact-form input:focus-visible,
+.contact-form select:focus-visible,
 .contact-form textarea:focus-visible {
   outline: 2px solid var(--mustard);
   outline-offset: 2px;
@@ -582,6 +634,28 @@ section { padding: 64px 0; }
 .contact-form .form-status.ok { color: var(--basil-deep); }
 .contact-form .form-status.err { color: var(--paprika); }
 .form-status { margin-top: .8em; font-size: .9rem; font-family: var(--font-ticket); }
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: .6em;
+}
+.checkbox-row input[type="checkbox"] {
+  width: 1.1em;
+  height: 1.1em;
+  margin-top: .2em;
+  flex-shrink: 0;
+  accent-color: var(--mustard);
+}
+.checkbox-row label {
+  font-family: var(--font-body);
+  font-size: .88rem;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--charcoal);
+  margin-bottom: 0;
+}
+.field-hint { font-size: .78rem; color: #6b6966; margin-top: .35em; }
 .form-status.ok { color: var(--cream); }
 .form-status.err { color: #e07a5f; }
 .visually-hidden { position: absolute; left: -9999px; }
