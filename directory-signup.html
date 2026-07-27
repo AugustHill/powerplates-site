@@ -96,7 +96,27 @@
 
           <div>
             <label for="dir-industry">Industry</label>
-            <input type="text" id="dir-industry" name="industry" placeholder="e.g. Real Estate, Insurance, Marketing" required>
+            <select id="dir-industry" name="industry" required>
+              <option value="" disabled selected>Choose the closest fit</option>
+              <option>Real Estate</option>
+              <option>Insurance</option>
+              <option>Financial Services &amp; Lending</option>
+              <option>Marketing &amp; Advertising</option>
+              <option>Health &amp; Wellness</option>
+              <option>Legal</option>
+              <option>Home Services &amp; Construction</option>
+              <option>Food &amp; Beverage</option>
+              <option>Retail</option>
+              <option>Technology</option>
+              <option>Consulting</option>
+              <option>Nonprofit</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div id="dir-industry-other-wrap" style="display:none;">
+            <label for="dir-industry-other">Please specify your industry</label>
+            <input type="text" id="dir-industry-other" name="industry_other" placeholder="Your industry">
           </div>
 
           <div>
@@ -198,5 +218,19 @@
 </footer>
 
 <script src="js/script.js"></script>
+<script>
+  (function () {
+    var select = document.querySelector('#dir-industry');
+    var wrap = document.querySelector('#dir-industry-other-wrap');
+    var otherInput = document.querySelector('#dir-industry-other');
+    if (!select || !wrap || !otherInput) return;
+    select.addEventListener('change', function () {
+      var isOther = select.value === 'Other';
+      wrap.style.display = isOther ? 'block' : 'none';
+      otherInput.required = isOther;
+      if (!isOther) otherInput.value = '';
+    });
+  })();
+</script>
 </body>
 </html>
