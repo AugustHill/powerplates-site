@@ -590,6 +590,10 @@ section { padding: 64px 0; }
 
 .site-footer { padding: 50px 0 36px; border-top: 1px solid rgba(41,39,36,.12); }
 .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+.footer-brand-col { display: flex; flex-direction: column; gap: 16px; }
+.social-links { display: flex; gap: 14px; }
+.social-links a { color: var(--charcoal); display: flex; }
+.social-links a:hover { color: var(--paprika); }
 .footer-cols { display: flex; gap: 60px; flex-wrap: wrap; }
 .footer-col h4 { font-family: var(--font-ticket); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--paprika); margin-bottom: .8em; }
 .footer-col a { display: block; text-decoration: none; color: var(--charcoal); font-size: .92rem; margin-bottom: .55em; }
