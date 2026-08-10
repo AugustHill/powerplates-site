@@ -407,7 +407,7 @@ section { padding: 64px 0; }
   background: var(--cream);
 }
 .flyer-thumb {
-  aspect-ratio: 4/5;
+  min-height: 200px;
   background: repeating-linear-gradient(135deg, var(--cream-deep), var(--cream-deep) 10px, var(--cream) 10px, var(--cream) 20px);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-ticket);
@@ -416,7 +416,8 @@ section { padding: 64px 0; }
   text-align: center;
   padding: 14px;
 }
-.flyer-thumb img { width: 100%; height: 100%; object-fit: cover; }
+/* Show the whole flyer at its real proportions -- never crop it. */
+.flyer-thumb img { width: 100%; height: auto; display: block; }
 .flyer-body { padding: 18px 20px; }
 .flyer-body h3 { font-size: 1.05rem; margin-bottom: .3em; }
 .flyer-meta { font-family: var(--font-ticket); font-size: .75rem; color: var(--paprika); margin-bottom: .8em; }
