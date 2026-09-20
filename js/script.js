@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Newsletter form -> Web3Forms (async, no page reload)
+  var NEWSLETTER_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwkV4bYyLKOEUmRyyep-3XkHTUoFxmL-NJOiY8CDc3KMW40023RY4IKGtO-iEZkEc72Iw/exec';
   var forms = document.querySelectorAll('.web3form');
   forms.forEach(function (form) {
     var status = form.querySelector('.form-status');
@@ -26,6 +27,23 @@ document.addEventListener('DOMContentLoaded', function () {
       var submitBtn = form.querySelector('button[type="submit"]');
       var originalBtnText = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+      // Newsletter signups also go to Follow Up Boss + a tracking sheet, in parallel with Web3Forms
+      var subjectField = form.querySelector('input[name="subject"]');
+      if (subjectField && subjectField.value === 'New Power Plates newsletter signup') {
+        try {
+          fetch(NEWSLETTER_SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              first_name: data.get('first_name') || '',
+              last_name: data.get('last_name') || '',
+              email: data.get('email') || ''
+            })
+          }).catch(function () {});
+        } catch (err) {}
+      }
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
