@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Power Plates//Ignite Connections//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:STANDARD
+DTSTART:19701101T020000
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+TZNAME:EST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700308T020000
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+TZNAME:EDT
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:ignite-connections-2026-11-05@tampapowerplates.com
+DTSTAMP:20261012T120000Z
+DTSTART;TZID=America/New_York:20261105T173000
+DTEND;TZID=America/New_York:20261105T203000
+SUMMARY:Ignite Connections: Speed Networking
+LOCATION:Scottish American Center\, 917 Louden Avenue\, Dunedin\, FL 34698
+DESCRIPTION:Speed networking for small business owners and professionals\, benefiting Suncoast Voices for Children. Doors open at 5:30 PM. Dinner and drinks included. Tickets: https://DunedinConnect.eventbrite.com
+URL:https://tampapowerplates.com/speed-networking
+END:VEVENT
+END:VCALENDAR
