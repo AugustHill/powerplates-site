@@ -681,6 +681,16 @@ html.sn-lb-open { overflow: hidden; }
   letter-spacing: .12em;
   text-transform: uppercase;
 }
+/* Each tile is one big link: the logo's link stretches over the whole tile. */
+.sn-sponsor { position: relative; transition: transform .2s ease, box-shadow .2s ease; }
+.sn-sponsor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 3px rgba(255, 198, 26, .85), 0 20px 40px rgba(0, 0, 0, .5);
+}
+.sn-sponsor-logo a { display: grid; place-items: center; width: 100%; height: 100%; }
+.sn-sponsor-logo a::after { content: ''; position: absolute; inset: 0; border-radius: 24px; }
+.sn-page .sn-sponsor-logo a:focus-visible { outline: none; }
+.sn-page .sn-sponsor-logo a:focus-visible::after { outline: 3px solid var(--sn-gold); outline-offset: 4px; }
 @media (max-width: 800px) { .sn-sponsor { flex-basis: calc((100% - 22px) / 2); min-width: 0; } }
 @media (max-width: 520px) {
   .sn-sponsor { flex-basis: 100%; }
@@ -789,7 +799,7 @@ html.sn-lb-open { overflow: hidden; }
 /* ---------- Motion preferences ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .sn-page .btn, .sn-nav, .sn-tool, .sn-thumb { transition: none; }
-  .sn-page .btn:hover { transform: none; }
+  .sn-page .btn, .sn-nav, .sn-tool, .sn-thumb, .sn-sponsor { transition: none; }
+  .sn-page .btn:hover, .sn-sponsor:hover { transform: none; }
   .sn-thumb.is-active { transform: none; }
 }
