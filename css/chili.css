@@ -434,6 +434,16 @@ html { background: #1c0f08; }
 .ck-contact-line { margin: .9rem 0 0; font-size: .95rem; }
 @media (max-width: 860px) { .ck-two { grid-template-columns: 1fr; } }
 
+/* Cook details: a wide card that spans both columns under Cooks wanted + Gift baskets */
+.ck-two .ck-card.ck-wide { grid-column: 1 / -1; scroll-margin-top: 100px; }
+.ck-wide .ck-cook-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 1.2rem; }
+.ck-bullets { list-style: none; margin: 0; padding: 0; display: grid; gap: .5em; }
+.ck-bullets li { position: relative; padding-left: 1.3em; line-height: 1.5; color: #3a2c1f; text-wrap: pretty; }
+.ck-bullets li::before { content: ''; position: absolute; left: .1em; top: .55em; width: .55em; height: .55em; border-radius: 50%; background: var(--ck-red); }
+.ck-wide .ck-info h3 { margin-bottom: .5em; }
+.ck-wide .ck-contact-line { margin-top: 1.3rem; }
+@media (max-width: 700px) { .ck-wide .ck-cook-grid { grid-template-columns: 1fr; } }
+
 /* ============================================
    SPONSORS NEEDED
    ============================================ */
@@ -539,6 +549,7 @@ html { background: #1c0f08; }
 .ck-faq details[open] summary::after { content: '\2212'; }
 .ck-faq .ck-faq-a { padding: 0 20px 18px; }
 .ck-faq .ck-faq-a p { margin: 0; }
+.ck-faq .ck-faq-group { margin: 1.2rem 0 .1rem; padding-bottom: .35rem; border-bottom: 3px solid rgba(142, 27, 27, .35); font-family: var(--ck-cond); font-weight: 700; font-size: 1.3rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ck-red); scroll-margin-top: 100px; }
 
 /* ============================================
    PHOTOS (taped prints on the wood)
